@@ -62,7 +62,12 @@ img {
   overflow: hidden;
   border: 1px solid var(--border);
   text-align: left;
+}
 
+/* Margin Top Added in Liked and Reported Posts */
+#likedPost > .post:not(:first-child),
+#reportedPost > .post:not(:first-child) {
+  margin-top: 10px;
 }
 
 .post__header {

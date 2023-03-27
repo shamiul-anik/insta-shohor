@@ -87,7 +87,7 @@ const createPost = (post) => {
 
               <div class="post__footer">
                 <div class="post__buttons">
-                  <button class="post__button" onclick="addToLiked(${post.id})">
+                  <button class="post__button" onclick="addToLiked(${post.id})" title="Like">
                   <i class="fa-solid fa-heart ${isLiked(post.id) && "text-danger"
                   }"></i>
                     
@@ -99,7 +99,7 @@ const createPost = (post) => {
 
                   <div class="post__indicators"></div>
 
-                  <button class="post__button post__button--align-right" onclick="reportPost(${post.id})">
+                  <button class="post__button post__button--align-right" onclick="reportPost(${post.id})" title="Report">
                     <i class="fa-solid fa-ban"></i>
                   </button>
                 </div>
@@ -147,18 +147,22 @@ const showPosts = (posts) => {
 };
 
 const displayLikedPosts = () => {
+    const likedPostContainer = document.getElementById("likedPost");
+    likedPostContainer.innerHTML = "";
     const likedPosts = getLikedPosts();
     likedPosts.forEach((post) => {
         const div = createPost(post);
-        document.getElementById( "liked" ).appendChild(div);
+        document.getElementById("likedPost").appendChild(div);
     });
 };
 
 const displayReportedPosts = () => {
+    const reportedPostContainer = document.getElementById("reportedPost");
+    reportedPostContainer.innerHTML = "";
     const reportedPosts = getReportedPosts();
-    posts.forEach((post) => {
-        const div = createPost(post);
-        document.getElementById( "reported" ).appendChild(div);
+    reportedPosts.forEach((post) => {
+      const div = createPost(post);
+      document.getElementById("reportedPost").appendChild(div);
     });
 };
 
