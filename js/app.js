@@ -52,6 +52,7 @@ const switchTab = (id) => {
 
 const createPost = (post) => {
     const image = post.image;
+    const userImage = post.userImage;
     const div = document.createElement( "article" );
     div.classList.add( "post" );
     div.innerHTML = `
@@ -62,7 +63,7 @@ const createPost = (post) => {
                     target="_blank"
                     class="post__avatar"
                   >
-                    <img src="${image}" alt="User Picture" />
+                    <img src="${userImage}" alt="User Picture" />
                   </a>
                   <a href="#" class="post__user">phero</a>
                 </div>
@@ -85,7 +86,9 @@ const createPost = (post) => {
               <div class="post__footer">
                 <div class="post__buttons">
                   <button class="post__button" onclick="addToLiked(${post.id})">
-                  <i class="fa-solid fa-heart ${isLiked(post.id) && "text-danger"}"></i>
+                  <i class="fa-solid fa-heart ${
+                    isLiked(post.id) && "text-danger"
+                  }"></i>
                     
                   </button>
                   <button class="post__button">
@@ -96,13 +99,15 @@ const createPost = (post) => {
                   <div class="post__indicators"></div>
 
                   <button class="post__button post__button--align-right" onclick="reportPost(${
-                      post.id
+                    post.id
                   })">
                     <i class="fa-solid fa-ban"></i>
                   </button>
                 </div>
 
-                <div class="post__content">${displayContent(post.description)}</div>
+                <div class="post__content">${displayContent(
+                  post.description
+                )}</div>
 
                 <div class="post__infos">
                   <div class="post__likes">
@@ -161,6 +166,7 @@ const displayReportedPosts = () => {
 const loadPosts = async () =>{
   let data = await fetch('https://raw.githubusercontent.com/ProgrammingHero1/insta-shohor/main/data/posts.json');
   posts = await data.json();
+  console.table(posts)
   showPosts(posts);
 }
 
