@@ -10,4 +10,4 @@ Practicing debugging tools for issue solving.
 2. Description not showing properly issue fixing (displayContent() function updating).
 3. Comments not showing correctly issue fixing.
 4. Like not working properly issue fixing and click to add/remove add like functionality added.
-5. 
+5. Hover to show title on "Posts", "Liked Posts" and "Reported Posts" button in the navbar.
